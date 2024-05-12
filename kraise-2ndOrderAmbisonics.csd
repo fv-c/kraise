@@ -1,7 +1,15 @@
+/*
+kraise-2ndOrderAmbisonics.csd
+
+Written by Francesco Vitucci, Anthony Di Furia, Giuseppe Silvi, Daniele Annese, 2024
+https://github.com/fv-c/kraise
+*/
+
+
 <Cabbage> bounds(0, 0, 0, 0)
-    form caption("FFTVERBVIT_IN2") size(850, 450), pluginId("vii2"), colour("40,40,40,255")
+    form caption("Kraise - 2nd Order Ambisonics") size(850, 450), pluginId("vii2"), colour("40,40,40,255")
     ;TITOLO
-    label bounds(294, 10, 551, 41) channel("label10021") text("FFT VITUCCI VERB - IN 3ord")
+    label bounds(10, 10, 551, 30) channel("label10021") text("Kraise - 2nd Order Ambisonics")
 
     ;FFT
     groupbox bounds(4, 54, 286, 137) channel("groupbox10005") text("FFT CONTROL")
@@ -54,7 +62,7 @@
     0dbfs = 1
     
     ;libUDO FILE
-    #include "libUDO.csd"
+    #include "kraise-lib.csd"
 
     ;variabili audio
     gaLDry init 0
@@ -66,7 +74,7 @@
     
     instr 1
         ;CONTROLS   
-        #include "Controls.csd"
+        #include "kraiseControls.csd"
         
         schedule 2,0.001,-1
         schedule 3,0.001,-1

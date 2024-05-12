@@ -1,3 +1,10 @@
+/*
+kraiseControls.csd
+
+Written by Francesco Vitucci, Anthony Di Furia, Giuseppe Silvi, Daniele Annese, 2024
+https://github.com/fv-c/kraise
+*/
+
 ;------------CONTROLS----------------------------------------------
         ;filepath
         gSfilepath      cabbageGetValue "filename" 

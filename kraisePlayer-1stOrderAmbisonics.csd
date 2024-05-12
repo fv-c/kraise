@@ -1,7 +1,14 @@
+/*
+kraisePlayer-1stOrderAmbisonics.csd
+
+Written by Francesco Vitucci, Anthony Di Furia, Giuseppe Silvi, Daniele Annese, 2024
+https://github.com/fv-c/kraise
+*/
+
 <Cabbage> bounds(0, 0, 0, 0)
-    form caption("FFT VITUCCI VERB 1 ORDER - PLAYER") size(850, 600), pluginId("vit1"), colour("40,40,40,255")
+    form caption("Kraise player - 1st Order Ambisonics") size(850, 600), pluginId("vit1"), colour("40,40,40,255")
     ;TITOLO
-    label bounds(294, 10, 551, 41) channel("label10021") text("FFT VITUCCI VERB - PLAYER")
+    label bounds(294, 10, 551, 41) channel("label10021") text("Kraise player - 1st Order Ambisonics")
     ;LOAD FILE - RATEPLAY - PLAY/STOP
     filebutton bounds(10, 12, 100, 25), text("Open File", "Open File"),  channel("filename"), shape("ellipse")
     rslider bounds(220, 6, 70, 50), channel("ratePlay"), range(-2, 2, 1, 1, 0.001), text("RATE PLAY")
@@ -59,7 +66,7 @@
     0dbfs = 1
     
     ;libUDO FILE
-    #include "libUDO.csd"
+    #include "kraise-lib.csd"
 
     ;variabili audio
     gaLDry init 0
@@ -73,7 +80,7 @@
     
     instr 1
         ;CONTROLS   
-        #include "Controls.csd"
+        #include "kraiseControls.csd"
 
         ; CHIAMA STRUMENTO 99 per caricare il file 
         prints gSfilepath

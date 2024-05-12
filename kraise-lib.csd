@@ -1,3 +1,13 @@
+/*
+kraise-lib.csd
+
+Written by Francesco Vitucci, Anthony Di Furia, Giuseppe Silvi, Daniele Annese, 2024
+
+Ambisonics Encoder - ACN SN3D 
+Explicit Ambix formulas for High Order Ambisonics
+http://pcfarina.eng.unipr.it/Aurora/HOA_explicit_formulas.htm
+*/
+
 ;--------------LOAD FILE-------------------------
 opcode LoadFile, iii, S
 

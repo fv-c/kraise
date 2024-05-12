@@ -1,7 +1,14 @@
+/*
+kraise-1stOrderAmbisonics.csd
+
+Written by Francesco Vitucci, Anthony Di Furia, Giuseppe Silvi, Daniele Annese, 2024
+https://github.com/fv-c/kraise
+*/
+
 <Cabbage> bounds(0, 0, 0, 0)
-    form caption("FFTVERBVIT_IN3") size(850, 450), pluginId("vii3"), colour("40,40,40,255")
+    form caption("Kraise - 1st Order Ambisonics") size(850, 450), pluginId("vii1"), colour("40,40,40,255")
     ;TITOLO
-    label bounds(294, 10, 551, 41) channel("label10021") text("FFT VITUCCI VERB - IN 3ord")
+    label bounds(10, 10, 551, 30) channel("label10021") text("Kraise - 1st Order Ambisonics")
 
     ;FFT
     groupbox bounds(4, 54, 286, 137) channel("groupbox10005") text("FFT CONTROL")
@@ -50,23 +57,23 @@
 
     <CsInstruments>
     ksmps = 32
-    nchnls = 16
+    nchnls = 4
     0dbfs = 1
     
     ;libUDO FILE
-    #include "libUDO.csd"
+    #include "kraise-lib.csd"
 
     ;variabili audio
     gaLDry init 0
     gaRDry init 0
-    gaBformatOut[] init 16
+    gaBformatOut[] init 4
     
     giFFTSIZE_CONTROL[] fillarray 128,256,512,1024,2048,4096
     giOVERLAPS_CONTROL[] fillarray 2,4,8,16
     
     instr 1
         ;CONTROLS   
-        #include "Controls.csd"
+        #include "kraiseControls.csd"
         
         schedule 2,0.001,-1
         schedule 3,0.001,-1
@@ -154,10 +161,10 @@
         ;----------------------
         
         ;------SPATIAL----------------------------------------------------------------
-        aBformat[] init 16
+        aBformat[] init 4
         
-        ;UDO Encoder3order
-        aBformat Encoder3order aOut, i(gkAZI) + (i(gkSpredBform) * 360), i(gkELEV) + (i(gkSpredBform) * 90)
+        ;UDO EncoderBformat
+        aBformat EncoderBformat aOut, i(gkAZI) + (i(gkSpredBform) * 360), i(gkELEV) + (i(gkSpredBform) * 90)
         
         gaBformatOut = gaBformatOut + aBformat;SEND TO INSTR 50
         ;---------------------------------------------------------------------------
