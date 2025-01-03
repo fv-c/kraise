@@ -1,0 +1,9 @@
+[submodule "kraise-rnbo"]
+	path = kraise-rnbo
+	url = https://github.com/fv-c/kraise-rnbo.git
+[submodule "kraise-csound"]
+	path = kraise-csound
+	url = https://github.com/fv-c/kraise-csound.git
+[submodule "py2cscontrols"]
+	path = py2cscontrols
+	url = https://github.com/fv-c/py2cscontrols.git
